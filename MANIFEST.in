@@ -2,4 +2,6 @@
 # do not include test files
 prune tests
 # include csv files
-include airportsdata/*.csv
+
+include airportsdata/airports.csv
+include airportsdata/iata_macs.csv
