@@ -1,0 +1,32 @@
+{% set name = "airportsdata" %}
+{% set version = "20240415" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  path: ..
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+
+requirements:
+  host:
+    - python
+  run:
+    - python
+
+test:
+  source_files:
+    - tests/
+    - airportsdata/
+  imports:
+    - airportsdata
+  commands:
+    - pytest 
+  requires:
+    - pytest
+
